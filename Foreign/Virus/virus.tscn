@@ -1,0 +1,95 @@
+[gd_scene load_steps=8 format=3 uid="uid://ngoghbddhgdx"]
+
+[ext_resource type="Texture2D" uid="uid://d6rppbq5d2ud" path="res://Foreign/Virus/image-removebg-preview.png" id="1_pp60n"]
+[ext_resource type="Script" path="res://Foreign/Virus/virusscript.gd" id="1_q334e"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0o8ch"]
+radius = 120.416
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ck2yl"]
+radius = 125.004
+
+[sub_resource type="Animation" id="Animation_hksbo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Image-removebg-preview:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_o8jva"]
+resource_name = "enter_cell"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Image-removebg-preview:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.06, 0.06)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.006, 0.006)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_absbf"]
+_data = {
+"RESET": SubResource("Animation_hksbo"),
+"enter_cell": SubResource("Animation_o8jva")
+}
+
+[node name="Virus" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_q334e")
+
+[node name="Image-removebg-preview" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_pp60n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0o8ch")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_ck2yl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_absbf")
+}
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

@@ -1,0 +1,115 @@
+[gd_scene load_steps=5 format=3 uid="uid://cj54n7u3oaca0"]
+
+[ext_resource type="Script" path="res://Main/mainscript.gd" id="1_tnewd"]
+[ext_resource type="PackedScene" uid="uid://ngoghbddhgdx" path="res://Foreign/Virus/virus.tscn" id="1_uv6h5"]
+[ext_resource type="Script" path="res://Main/camerascript.gd" id="3_7mv1d"]
+[ext_resource type="PackedScene" uid="uid://dj4t2plapegjy" path="res://Body/Body Cells/body_cell.tscn" id="4_m3a13"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_tnewd")
+
+[node name="Virus" parent="." instance=ExtResource("1_uv6h5")]
+position = Vector2(567, 139)
+angular_damp_mode = 1
+speed = 1
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("3_7mv1d")
+
+[node name="Body Cells" type="Node2D" parent="."]
+
+[node name="Body Cell" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(1280, -1293)
+
+[node name="Body Cell2" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(-1475, -1227)
+
+[node name="Body Cell3" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(-18, -1275)
+
+[node name="Body Cell4" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(612, -1274)
+
+[node name="Body Cell5" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(1921, -1296)
+
+[node name="Body Cell6" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(-2222, -1209)
+
+[node name="Body Cell7" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(2621, -1304)
+
+[node name="Body Cell8" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(-728, -1248)
+
+[node name="Body Cell9" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(1280, -1941)
+
+[node name="Body Cell10" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(-1475, -1875)
+
+[node name="Body Cell11" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(-18, -1923)
+
+[node name="Body Cell12" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(612, -1922)
+
+[node name="Body Cell13" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(1921, -1944)
+
+[node name="Body Cell14" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(-2222, -1857)
+
+[node name="Body Cell15" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(2621, -1952)
+
+[node name="Body Cell16" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(-728, -1896)
+
+[node name="Body Cell17" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(1291, -2560)
+
+[node name="Body Cell18" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(-1464, -2494)
+
+[node name="Body Cell19" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(-7, -2542)
+
+[node name="Body Cell20" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(623, -2541)
+
+[node name="Body Cell21" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(1932, -2563)
+
+[node name="Body Cell22" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(-2211, -2476)
+
+[node name="Body Cell23" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(2632, -2571)
+
+[node name="Body Cell24" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(-717, -2515)
+
+[node name="Body Cell25" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(1291, -3208)
+
+[node name="Body Cell26" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(-1464, -3142)
+
+[node name="Body Cell27" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(-7, -3190)
+
+[node name="Body Cell28" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(623, -3189)
+
+[node name="Body Cell29" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(1932, -3211)
+
+[node name="Body Cell30" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(-2211, -3124)
+
+[node name="Body Cell31" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(2632, -3219)
+
+[node name="Body Cell32" parent="Body Cells" instance=ExtResource("4_m3a13")]
+position = Vector2(-717, -3163)
