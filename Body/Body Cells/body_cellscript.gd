@@ -3,6 +3,7 @@ extends RigidBody2D
 var infected = false
 var dead = false
 var alarmins = false
+var virusDeath = false
 
 @export var scene_to_instantiate: PackedScene
 
@@ -20,10 +21,12 @@ func _process(delta):
 
 func new_virus():
 	var new_scene = scene_to_instantiate.instantiate()
-	add_sibling(new_scene)
+	$"..".add_sibling(new_scene)
 	new_scene.position = global_position
 
 func order_death():
+	virusDeath = false
+	$AnimationPlayer.stop()
 	$GPUParticles2D.emitting = true
 	await get_tree().create_timer(0.5).timeout
 	$AnimationPlayer.play("virus death")
@@ -34,16 +37,20 @@ func order_death():
 	queue_free()
 
 func virus_death():
-	$GPUParticles2D.emitting = true
-	alarmins = true
-	await get_tree().create_timer(0.5).timeout
-	$AnimationPlayer.play("virus death")
-	$Area2D.monitorable = false
-	$Area2D.monitoring = false
-	$Area2D/CollisionShape2D.set_deferred("disabled", true)
-	for i in 10:
-		new_virus()
-		await get_tree().create_timer(0.1).timeout
+	virusDeath = true
+	while virusDeath == true:
+		$GPUParticles2D.emitting = true
+		alarmins = true
+		await get_tree().create_timer(0.5).timeout
+		$AnimationPlayer.play("virus death")
+		$Area2D.monitorable = false
+		$Area2D.monitoring = false
+		$Area2D/CollisionShape2D.set_deferred("disabled", true)
+		if virusDeath == true:
+			for i in 10:
+				new_virus()
+				await get_tree().create_timer(0.1).timeout
+		virusDeath = false
 
 func _on_area_2d_area_entered(area):
 	if infected == false:

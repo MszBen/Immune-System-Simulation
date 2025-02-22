@@ -119,3 +119,9 @@ position = Vector2(-717, -3163)
 [node name="Natural Killer Cell" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_s08e8")]
 position = Vector2(-1123.1, -469.99)
 target = NodePath("../Body Cells/Body Cell")
+
+[node name="Natural Killer Cell2" parent="." instance=ExtResource("5_s08e8")]
+position = Vector2(-2690.34, 378.033)
+
+[node name="Natural Killer Cell3" parent="." instance=ExtResource("5_s08e8")]
+position = Vector2(-1216.01, 497.897)
