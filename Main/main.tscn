@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://cj54n7u3oaca0"]
+[gd_scene load_steps=6 format=3 uid="uid://cj54n7u3oaca0"]
 
 [ext_resource type="Script" path="res://Main/mainscript.gd" id="1_tnewd"]
 [ext_resource type="PackedScene" uid="uid://ngoghbddhgdx" path="res://Foreign/Virus/virus.tscn" id="1_uv6h5"]
 [ext_resource type="Script" path="res://Main/camerascript.gd" id="3_7mv1d"]
 [ext_resource type="PackedScene" uid="uid://dj4t2plapegjy" path="res://Body/Body Cells/body_cell.tscn" id="4_m3a13"]
+[ext_resource type="PackedScene" uid="uid://bqhmncsu78d5w" path="res://Body/Immune Cells/Natural Killer Cell/natural_killer_cell.tscn" id="5_s08e8"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_tnewd")
@@ -14,6 +15,7 @@ angular_damp_mode = 1
 speed = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.25, 0.25)
 script = ExtResource("3_7mv1d")
 
 [node name="Body Cells" type="Node2D" parent="."]
@@ -113,3 +115,7 @@ position = Vector2(2632, -3219)
 
 [node name="Body Cell32" parent="Body Cells" instance=ExtResource("4_m3a13")]
 position = Vector2(-717, -3163)
+
+[node name="Natural Killer Cell" parent="." node_paths=PackedStringArray("target") instance=ExtResource("5_s08e8")]
+position = Vector2(-1123.1, -469.99)
+target = NodePath("../Body Cells/Body Cell")

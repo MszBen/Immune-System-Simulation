@@ -17,7 +17,6 @@ config/icon="res://Other/icon.svg"
 
 [display]
 
-window/size/borderless=true
 window/size/window_width_override=3840
 window/size/window_height_override=2160
 
@@ -32,4 +31,5 @@ mouse_button={
 [layer_names]
 
 2d_physics/layer_1="Virus"
-2d_physics/layer_2="Body"
+2d_physics/layer_2="Body Cells"
+2d_physics/layer_3="Immune System"

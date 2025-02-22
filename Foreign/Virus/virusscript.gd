@@ -8,6 +8,7 @@ var canInfect = true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Timer.start()
 	canInfect = true
 	angular_velocity = 3
 	add_constant_force(Vector2(randi_range(-350, 350), randi_range(-350, 350)))
@@ -40,4 +41,8 @@ func _on_area_2d_area_entered(area: Area2D):
 
 
 func _on_animation_player_animation_finished(anim_name):
+	queue_free()
+
+
+func _on_timer_timeout():
 	queue_free()
